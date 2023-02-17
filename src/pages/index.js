@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { HomeContent } from "src/components/HomeContent";
+import { HomeContent } from "src/components/home/HomeContent";
+
 
 export default function HomePage() {
+  
   return (
     <>
       <Head>

@@ -1,11 +1,13 @@
-import React, { useCallback, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useCallback, useContext } from "react";
 import axios from "axios";
 import { SearchBar } from "./SearchBar";
 import { SearchResults } from "./SearchResults";
+import { SearchContext } from "src/context/context";
+
+import { Box} from "../common";
 
 export const HomeContent = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const { searchResults, setSearchResults } = useContext(SearchContext);
 
   const handleSearch = useCallback(async (query) => {
     if (!query) {
@@ -14,22 +16,14 @@ export const HomeContent = () => {
     const { data } = await axios.get(
       `https://api.tvmaze.com/search/shows?q=${query}`
     );
-    console.log(data);
     setSearchResults(data);
   }, []);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Typography variant="h3" component="h1">
+    <Box>
+      <h1>
         Medimap TVMaze Coding Exercise
-      </Typography>
+      </h1>
       <SearchBar onSearch={handleSearch} />
       <div style={{ marginTop: "120px" }} />
       {searchResults?.length ? <SearchResults tvShows={searchResults} /> : null}

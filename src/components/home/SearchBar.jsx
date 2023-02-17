@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { Box, TextField, Button } from "@mui/material";
+import { css } from "@emotion/react";
+import { Box, Input, Button } from "../common";
 
 export const SearchBar = (props) => {
   const { onSearch } = props;
@@ -17,23 +18,20 @@ export const SearchBar = (props) => {
 
   return (
     <Box
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "480px",
-        maxWidth: "100%",
-        marginTop: "24px",
-      }}
+      css={css`
+        display: flex;
+        flex-direction: row;
+        width: 480px;
+        max-width: 100%;
+        margin-top: 24px;
+      `}
     >
-      <TextField
-        id="query"
-        variant="outlined"
-        placeholder="TV Show Query"
+      <Input 
         value={input}
         onChange={handleInputChanged}
         style={{ flex: 1 }}
       />
-      <Button variant="contained" color="primary" onClick={handleSearchClicked}>
+      <Button onClick={handleSearchClicked}>
         Search
       </Button>
     </Box>
