@@ -6,7 +6,4 @@ export const Container = styled.div`
     flex-wrap: wrap;
     width: 100%;
     flex-direction: row;
-    margin-top: -16px;
-    width: calc(100% + 16px);
-    margin-left: -16px;
 `;

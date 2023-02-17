@@ -4,15 +4,15 @@ import { Box, Row, Container, Rating } from "src/components/common";
 
 export const ShowContent = (props) => {
   const { show } = props;
-  const getFlagEmoji = countryCode =>{
-    if(!countryCode) return
+  const getFlagEmoji = countryCode => {
+    if (!countryCode) return
     return String.fromCodePoint(
       ...[...countryCode.toUpperCase()].map(
         x => 0x1f1a5 + x.charCodeAt()
       )
     )
   }
-    
+
 
   return (
     <>{show ?
@@ -26,21 +26,23 @@ export const ShowContent = (props) => {
     `}
       >
         <Container>
-          <Row xs={12} sm={3} md={3} lg={3}>
+          <Row xs={12} sm={3} md={3} lg={3} style={{ padding: "8px" }}>
             <img
               style={{ width: "100%" }}
               src={show?.image?.medium || show?.image?.original}
             />
           </Row>
-          <Row xs={12} sm={9} md={9} lg={9}>
+          <Row xs={12} sm={9} md={9} lg={9} style={{ padding: "8px" }}>
             <Container>
               <Row xs={12} sm={12} md={9} lg={6} dangerouslySetInnerHTML={{ __html: show?.summary }} />
               <Row xs={12} sm={12} md={9} lg={6}>
                 <Box
                   css={css`
-                background-color: #e6e1e1;
-                color: black;
-              `}
+                    background-color: #e6e1e1;
+                    color: black;
+                    padding: 1rem;
+                    border-radius: 5px;
+                  `}
                 >
                   <h3>Show Info</h3>
                   <p>

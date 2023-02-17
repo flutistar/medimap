@@ -16,6 +16,12 @@ export const SearchBar = (props) => {
     onSearch(input);
   }, [onSearch, input]);
 
+  const handleEnterKey = (e) => {
+    if (e.key === 'Enter') {
+      onSearch(input);
+    }
+  }
+
   return (
     <Box
       css={css`
@@ -29,6 +35,7 @@ export const SearchBar = (props) => {
       <Input 
         value={input}
         onChange={handleInputChanged}
+        onKeyDown={handleEnterKey}
         style={{ flex: 1 }}
       />
       <Button onClick={handleSearchClicked}>

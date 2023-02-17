@@ -18,7 +18,7 @@ export const Rating = ({ ratings }) => {
             <div>
                 <RateArray /> 
             </div>
-            <div css={{paddingLeft: "5px"}}>{ratings}</div>
+            <div css={{paddingLeft: "5px"}}>{ratings ?? "No review"}</div>
         </div>
     )
 };

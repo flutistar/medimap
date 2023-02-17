@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 import { mq } from './config';
   
 export const Row = styled.div`
-  padding: 8px;
   ${mq["sm"]} {
     width: ${props => props.sm/12*100}%
   }

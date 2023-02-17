@@ -4,7 +4,7 @@ import "src/styles/global.css"
 import Context from 'src/context/context';
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
   },
 });
 
